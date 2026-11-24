@@ -114,10 +114,6 @@ class ValidationReportGenerator:
         out.append(fmt.colorize(fmt.format_table(["Final Assessment Metric", "Result"], score_box), score_color + fmt.BOLD))
         out.append(f"\nAssessment Summary: {assessment.decision_reason}")
 
-        out.append(fmt.section("5. Actionable Security Recommendations"))
-        for idx, rec in enumerate(assessment.recommendations, start=1):
-            out.append(f"  {idx}. {rec}")
-
         return "\n".join(out)
 
     def save_json_report(
