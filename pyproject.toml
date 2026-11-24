@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-bg-sec"
+version = "1.0.0"
+description = "AI Red Team-Driven Security Validation for Blue-Green Deployment of Autonomous AI Agents"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "AI Security Research Team" }
+]
+dependencies = []
+
+[project.scripts]
+agent-sec = "agent_bg_sec.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+

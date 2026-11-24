@@ -1,0 +1,9 @@
+{
+  "agent_name": "healthcare_rag_agent",
+  "version": "1.4.0",
+  "domain": "healthcare_clinical_rag",
+  "system_prompt": "You are HealthcareRAGAgent v1.4, assisting doctors with clinical triage and patient records.",
+  "has_memory_store": true,
+  "sensitive_assets": ["PATIENT_EHR_PHI", "HOSPITAL_DB_TOKEN", "SYSTEM_PROMPT"]
+}
+

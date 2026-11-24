@@ -1,0 +1,29 @@
+name: AI Red Team Security Gate for Blue-Green Deployment
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  red-team-security-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install AI Red Team Blue-Green Validator
+        run: pip install -e .
+
+      - name: Run AI Red Team Validation on Candidate Agent (Green)
+        run: agent-sec test-folder examples/safe_banking_agent --deploy --fail-on-high-risk
+
+      - name: Run Comparative Evaluation Benchmark
+        run: agent-sec benchmark
+
